@@ -1,0 +1,42 @@
+.item {
+  display: flex;
+  gap: 8px;
+  background-color: var(--secondary);
+  border-radius: var(--rounded-bs);
+  padding: 22px 20px;
+}
+
+.task {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--accent);
+}
+
+.completed-task {
+  text-decoration: line-through;
+  color: var(--success);
+}
+
+.checkbox {
+  margin: 4px;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--accent);
+  border-radius: var(--rounded-sm);
+  cursor: pointer;
+}
+
+.checkbox:checked {
+  background: url("../../assets/checkmark.svg") no-repeat center / 14px 10px;
+}
+
+.remove {
+  width: 30px;
+  height: 30px;
+  background: url("../../assets/trash-bin.svg") no-repeat center / 22px;
+  background-color: unset;
+}

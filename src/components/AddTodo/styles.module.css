@@ -1,0 +1,44 @@
+.form {
+  display: flex;
+  gap: 12px;
+}
+
+.input {
+  flex-grow: 1;
+  padding: 10px 16px;
+  border: 1px solid var(--accent-tertiary);
+  border-radius: var(--rounded-bs);
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--accent-tertiary);
+  background-color: var(--primary);
+}
+
+.input::placeholder {
+  color: var(--third);
+}
+
+.input:focus-visible {
+  outline: solid 2px;
+}
+
+.add {
+  width: 42px;
+  height: 42px;
+  background: var(--accent) url("../../assets/plus.svg") no-repeat center / 22px;
+  border-radius: var(--rounded-bs);
+}
+
+.add:hover {
+  background-color: var(--accent-tertiary);
+}
+
+.add[disabled] {
+  background-color: var(--third);
+}
+
+.add[disabled]:hover {
+  cursor: not-allowed;
+}
