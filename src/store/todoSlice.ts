@@ -1,5 +1,5 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, nanoid } from '@reduxjs/toolkit';
 
 export type Todo = {
   id: string;
@@ -14,7 +14,7 @@ const todosSlice = createSlice({
     todoAdded(state, action: PayloadAction<{ text: string }>) {
       const todoText = action.payload.text;
       const newTodo: Todo = {
-        id: Date.now().toString(),
+        id: nanoid(),
         text: todoText,
         isDone: false
       };
