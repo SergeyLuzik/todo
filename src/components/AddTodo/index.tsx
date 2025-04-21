@@ -1,7 +1,8 @@
 import styles from "./styles.module.css"
-import { SubmitHandler, useForm } from "react-hook-form"
+import type { SubmitHandler } from "react-hook-form"
+import { useForm } from "react-hook-form"
 
-interface IFormInput {
+type FormInput = {
   taskField: string
 }
 
@@ -10,11 +11,11 @@ export const AddTodo = () => {
     register,
     handleSubmit,
     formState: { isValid },
-  } = useForm<IFormInput>({
+  } = useForm<FormInput>({
     mode: "onChange",
     defaultValues: { taskField: "" },
   })
-  const onSubmit: SubmitHandler<IFormInput> = data => {
+  const onSubmit: SubmitHandler<FormInput> = data => {
     console.log(data.taskField)
   }
   const validateTaskText = (value: string) => {
