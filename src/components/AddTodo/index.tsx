@@ -1,4 +1,3 @@
-import { log } from "console"
 import styles from "./styles.module.css"
 import { SubmitHandler, useForm } from "react-hook-form"
 
