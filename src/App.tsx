@@ -1,7 +1,3 @@
-// import "./App.css"
-// import { Counter } from "./features/counter/Counter"
-// import { Quotes } from "./features/quotes/Quotes"
-// import logo from "./logo.svg"
 import styles from './App.module.css';
 import { AddTodo } from './components/AddTodo';
 import { TodoList } from './components/TodoList';
@@ -14,8 +10,8 @@ export const App = () => {
   return (
     <div className={styles.app}>
       <AddTodo />
-      <TodoList title="Список дел" todos={todosInProgress} />
-      <TodoList title="Завершено" todos={completedTodos} />
+      {todosInProgress.length > 0 && <TodoList title="Список дел" todos={todosInProgress} />}
+      {completedTodos.length > 0 && <TodoList title="Завершено" todos={completedTodos} />}
     </div>
   );
 };
