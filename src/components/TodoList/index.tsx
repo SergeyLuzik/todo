@@ -1,17 +1,21 @@
-import { TodoItem } from "../TodoItem"
-import styles from "./styles.module.css"
+import { TodoItem } from '../TodoItem';
+import styles from './styles.module.css';
+import type { Todo } from '../../store/todosSlice';
 
-export const TodoList = () => {
+type TodoListProps = { title: string; todos: Todo[] };
+
+export const TodoList = ({ title, todos }: TodoListProps) => {
   return (
     <div className={styles.conteiner}>
       <p className={styles.title}>
-        {` Список дел - `}
-        <output>2</output>
+        {`${title} - `}
+        <output>{todos.length}</output>
       </p>
       <ol className={styles.list}>
-        <TodoItem />
-        <TodoItem />
+        {todos.map((todo) => (
+          <TodoItem key={todo.id} todo={todo} />
+        ))}
       </ol>
     </div>
-  )
-}
+  );
+};
