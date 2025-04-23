@@ -12,22 +12,18 @@
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  color: var(--accent-tertiary);
+  color: var(--third);
   background-color: var(--primary);
 }
 
-.input::placeholder {
-  color: var(--third);
-}
-
 .input:focus-visible {
-  outline: solid 2px;
+  outline: solid 2px var(--accent-tertiary);
 }
 
 .add {
   width: 42px;
   height: 42px;
-  background: var(--accent) url("../../assets/plus.svg") no-repeat center / 22px;
+  background: var(--accent) url('../../assets/plus.svg') no-repeat center / 22px;
   border-radius: var(--rounded-bs);
 }
 
