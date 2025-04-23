@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { todoDeleted, todoStatusUpdated, type Todo } from '../../store/todosSlice';
+import { todoDeleted, todoStatusUpdated, type Todo } from '../todosSlice';
 import styles from './styles.module.css';
 import { Popup } from '../Popup';
-import { useAppDispatch } from '../../store/hooks';
+import { useAppDispatch } from '../../../app/hooks';
 import clsx from 'clsx';
 
 export const TodoItem = ({ todo }: { todo: Todo }) => {

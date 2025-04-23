@@ -1,8 +1,8 @@
 import styles from './styles.module.css';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
-import { useAppDispatch } from '../../store/hooks';
-import { todoAdded } from '../../store/todosSlice';
+import { useAppDispatch } from '../../../app/hooks';
+import { todoAdded } from '../todosSlice';
 
 type FormInput = {
   taskField: string;
