@@ -28,7 +28,7 @@ export const AddTodo = () => {
     return lattersOnly.length >= 2;
   };
   return (
-    <form className={styles.form} onSubmit={(e) => void handleSubmit(onSubmit)(e)}>
+    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <input
         className={styles.input}
         placeholder="Новая задача"
