@@ -11,7 +11,7 @@ export const Popup = ({ todoName, togglePopup, onDeleteTodo }: PopupProps) => {
       <div className={styles.popup}>
         <div className={styles.content}>
           <div className={styles.header}>
-            <p className={styles.title}>{`Вы действительно хотите удалить "${todoName}"?`}</p>
+            <p>{`Вы действительно хотите удалить "${todoName}"?`}</p>
             <button className={styles.close} type="button" onClick={togglePopup}></button>
           </div>
           <div className={styles.buttons}>
