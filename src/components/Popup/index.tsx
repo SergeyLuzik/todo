@@ -3,23 +3,32 @@ import styles from './styles.module.css';
 
 type PopupProps = { todoName: string; togglePopup: () => void; onDeleteTodo: () => void };
 
-export const Popup = ({ todoName, togglePopup, onDeleteTodo }: PopupProps) =>
-  createPortal(
-    <div className={styles.popup}>
-      <div className={styles.content}>
-        <div className={styles.header}>
-          <p className={styles.title}>{`Вы действительно хотите удалить "${todoName}"?`}</p>
-          <button className={styles.close} type="button" onClick={togglePopup}></button>
+export const Popup = ({ todoName, togglePopup, onDeleteTodo }: PopupProps) => {
+  const modalsConteiner = document.getElementById('modal-root');
+
+  if (modalsConteiner) {
+    return createPortal(
+      <div className={styles.popup}>
+        <div className={styles.content}>
+          <div className={styles.header}>
+            <p className={styles.title}>{`Вы действительно хотите удалить "${todoName}"?`}</p>
+            <button className={styles.close} type="button" onClick={togglePopup}></button>
+          </div>
+          <div className={styles.buttons}>
+            <button className={styles.action} type="button" onClick={onDeleteTodo}>
+              Да
+            </button>
+            <button className={styles.action} type="button" onClick={togglePopup}>
+              Нет
+            </button>
+          </div>
         </div>
-        <div className={styles.buttons}>
-          <button className={styles.action} type="button" onClick={onDeleteTodo}>
-            Да
-          </button>
-          <button className={styles.action} type="button" onClick={togglePopup}>
-            Нет
-          </button>
-        </div>
-      </div>
-    </div>,
-    document.getElementById('modal-root')
-  );
+      </div>,
+      modalsConteiner
+    );
+  } else {
+    throw new Error(
+      "Root element with ID 'modal-root' was not found in the document. Ensure there is a corresponding HTML element with the ID 'modal-root' in your HTML file."
+    );
+  }
+};

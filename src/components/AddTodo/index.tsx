@@ -3,15 +3,10 @@ import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { useAppDispatch } from '../../store/hooks';
 import { todoAdded } from '../../store/todosSlice';
-import type React from 'react';
 
 type FormInput = {
   taskField: string;
 };
-
-type AddTodoFormElement = {
-  readonly taskField: HTMLInputElement;
-} & HTMLFormElement;
 
 export const AddTodo = () => {
   const dispatch = useAppDispatch();
@@ -24,11 +19,7 @@ export const AddTodo = () => {
     mode: 'onChange',
     defaultValues: { taskField: '' }
   });
-  const onSubmit: SubmitHandler<FormInput> = (
-    { taskField },
-    e: React.FormEvent<AddTodoFormElement>
-  ) => {
-    e.preventDefault();
+  const onSubmit: SubmitHandler<FormInput> = ({ taskField }) => {
     dispatch(todoAdded({ text: taskField }));
     reset();
   };
@@ -37,7 +28,7 @@ export const AddTodo = () => {
     return lattersOnly.length >= 2;
   };
   return (
-    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+    <form className={styles.form} onSubmit={(e) => void handleSubmit(onSubmit)(e)}>
       <input
         className={styles.input}
         placeholder="Новая задача"
