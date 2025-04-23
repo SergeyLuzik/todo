@@ -23,7 +23,7 @@
 .add {
   width: 42px;
   height: 42px;
-  background: var(--accent) url('../../../assets/plus.svg') no-repeat center / 22px;
+  background: var(--accent) url('@assets/plus.svg') no-repeat center / 22px;
   border-radius: var(--rounded-bs);
 }
 

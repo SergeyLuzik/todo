@@ -1,6 +1,6 @@
 import { TodoItem } from '../TodoItem';
 import styles from './styles.module.css';
-import type { Todo } from '../../store/todosSlice';
+import type { Todo } from '../todosSlice';
 
 type TodoListProps = { title: string; todos: Todo[] };
 

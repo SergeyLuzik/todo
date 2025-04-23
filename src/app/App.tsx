@@ -1,8 +1,8 @@
 import styles from './App.module.css';
-import { AddTodo } from '../features/todos/AddTodo';
-import { TodoList } from '../features/todos/TodoList';
+import { AddTodo } from '@features/todos/AddTodo';
+import { TodoList } from '@features/todos/TodoList';
 import { useAppSelector } from './hooks';
-import { selectCompletedTodos, selectTodosInProgress } from '../features/todos/todosSlice';
+import { selectCompletedTodos, selectTodosInProgress } from '@features/todos/todosSlice';
 
 export const App = () => {
   const todosInProgress = useAppSelector(selectTodosInProgress);

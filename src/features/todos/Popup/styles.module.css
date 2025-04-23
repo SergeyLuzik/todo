@@ -50,7 +50,7 @@
   position: absolute;
   width: 24px;
   height: 24px;
-  background-image: url('../../../assets/plus.svg');
+  background-image: url('@assets/plus.svg');
   transform: translate(-50%, -50%) rotate(45deg);
 }
 

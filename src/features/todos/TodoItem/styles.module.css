@@ -31,12 +31,12 @@
 }
 
 .checkbox:checked {
-  background: url('../../../assets/checkmark.svg') no-repeat center / 14px 10px;
+  background: url('@assets/checkmark.svg') no-repeat center / 14px 10px;
 }
 
 .remove {
   width: 30px;
   height: 30px;
-  background: url('../../../assets/trash-bin.svg') no-repeat center / 22px;
+  background: url('@assets/trash-bin.svg') no-repeat center / 22px;
   background-color: unset;
 }
