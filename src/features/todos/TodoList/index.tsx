@@ -6,7 +6,7 @@ type TodoListProps = { title: string; todos: Todo[] };
 
 export const TodoList = ({ title, todos }: TodoListProps) => {
   return (
-    <div className={styles.conteiner}>
+    <div className={styles.container}>
       <p className={styles.title}>
         {`${title} - `}
         <output>{todos.length}</output>

@@ -4,9 +4,9 @@ import styles from './styles.module.css';
 type PopupProps = { todoName: string; togglePopup: () => void; onDeleteTodo: () => void };
 
 export const Popup = ({ todoName, togglePopup, onDeleteTodo }: PopupProps) => {
-  const modalsConteiner = document.getElementById('modal-root');
+  const modalsContainer = document.getElementById('modal-root');
 
-  if (modalsConteiner) {
+  if (modalsContainer) {
     return createPortal(
       <div className={styles.popup}>
         <div className={styles.content}>
@@ -24,7 +24,7 @@ export const Popup = ({ todoName, togglePopup, onDeleteTodo }: PopupProps) => {
           </div>
         </div>
       </div>,
-      modalsConteiner
+      modalsContainer
     );
   } else {
     throw new Error(
