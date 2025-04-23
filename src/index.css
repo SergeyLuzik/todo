@@ -29,14 +29,17 @@ textarea,
 select,
 button {
   font: inherit;
+  color: inherit;
 }
 
-button[class] {
+:where(button[class]) {
   cursor: pointer;
   border: none;
   outline: none;
+  background: unset;
   padding: 0;
 }
+
 p[class] {
   margin: 0;
 }
@@ -44,17 +47,17 @@ p[class] {
 body {
   margin: 0;
   font-family:
-    "Play",
+    'Play',
     -apple-system,
     BlinkMacSystemFont,
-    "Segoe UI",
-    "Roboto",
-    "Oxygen",
-    "Ubuntu",
-    "Cantarell",
-    "Fira Sans",
-    "Droid Sans",
-    "Helvetica Neue",
+    'Segoe UI',
+    'Roboto',
+    'Oxygen',
+    'Ubuntu',
+    'Cantarell',
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
