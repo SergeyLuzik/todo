@@ -13,7 +13,7 @@ export const AddTodo = () => {
   const {
     register,
     handleSubmit,
-    formState: { isValid },
+    formState: { isValid, errors },
     reset
   } = useForm<FormInput>({
     mode: 'onChange',
@@ -27,13 +27,17 @@ export const AddTodo = () => {
     const lattersOnly = value.replace(/[^a-zA-Zа-яА-Я]/g, '');
     return lattersOnly.length >= 2;
   };
+
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-      <input
-        className={styles.input}
-        placeholder="Новая задача"
-        {...register('taskField', { required: true, validate: validateTaskText })}
-      />
+      <div className={styles.inputWrapper}>
+        <input
+          className={styles.input}
+          placeholder="Новая задача"
+          {...register('taskField', { required: true, validate: validateTaskText })}
+        />
+        {errors.taskField && <p className={styles.errorMessage}>Введите больше одной буквы</p>}
+      </div>
       <button type="submit" className={styles.add} disabled={!isValid}></button>
     </form>
   );

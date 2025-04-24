@@ -3,8 +3,11 @@
   gap: 12px;
 }
 
-.input {
+.input-wrapper {
   flex-grow: 1;
+}
+.input {
+  position: relative;
   padding: 10px 16px;
   border: 1px solid var(--accent-tertiary);
   border-radius: var(--rounded-bs);
@@ -13,11 +16,19 @@
   font-weight: 400;
   font-style: normal;
   color: var(--third);
+  width: 100%;
   background-color: var(--primary);
 }
 
 .input:focus-visible {
   outline: solid 2px var(--accent-tertiary);
+}
+
+.error-message {
+  position: absolute;
+  font-size: 12px;
+  color: var(--accent);
+  padding: 4px 0 0 6px;
 }
 
 .add {
