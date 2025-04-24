@@ -1,34 +1,31 @@
 import { createPortal } from 'react-dom';
 import styles from './styles.module.css';
+import { useRootNode } from '@/app/hooks';
 
 type PopupProps = { todoName: string; togglePopup: () => void; onDeleteTodo: () => void };
 
 export const Popup = ({ todoName, togglePopup, onDeleteTodo }: PopupProps) => {
-  const modalsContainer = document.getElementById('modal-root');
+  const popupRoot = useRootNode('modal-root');
 
-  if (modalsContainer) {
-    return createPortal(
-      <div className={styles.popup}>
-        <div className={styles.content}>
-          <div className={styles.header}>
-            <p>{`Вы действительно хотите удалить "${todoName}"?`}</p>
-            <button className={styles.close} type="button" onClick={togglePopup}></button>
-          </div>
-          <div className={styles.buttons}>
-            <button className={styles.action} type="button" onClick={onDeleteTodo}>
-              Да
-            </button>
-            <button className={styles.action} type="button" onClick={togglePopup}>
-              Нет
-            </button>
-          </div>
+  if (!popupRoot) return null;
+
+  return createPortal(
+    <div className={styles.popup}>
+      <div className={styles.content}>
+        <div className={styles.header}>
+          <p>{`Вы действительно хотите удалить "${todoName}"?`}</p>
+          <button className={styles.close} type="button" onClick={togglePopup}></button>
         </div>
-      </div>,
-      modalsContainer
-    );
-  } else {
-    throw new Error(
-      "Root element with ID 'modal-root' was not found in the document. Ensure there is a corresponding HTML element with the ID 'modal-root' in your HTML file."
-    );
-  }
+        <div className={styles.buttons}>
+          <button className={styles.action} type="button" onClick={onDeleteTodo}>
+            Да
+          </button>
+          <button className={styles.action} type="button" onClick={togglePopup}>
+            Нет
+          </button>
+        </div>
+      </div>
+    </div>,
+    popupRoot
+  );
 };
